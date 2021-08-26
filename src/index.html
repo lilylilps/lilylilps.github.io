@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css %>"/>
+</head>
+
+<body>
+    <div class="root">
+        <header class="header root__section">
+            <img src="<%=require('./images/logo.svg').default%>" alt="mesto logo" class="logo">
+        </header>
+        <div class="profile root__section">
+            <div class="user-info">
+                <img class="user-info__photo" src="">
+                <div class="user-info__data">
+                    <h1 class="user-info__name"></h1>
+                    <p class="user-info__job"></p>
+                    <button class="button user-info__edit-button">Edit</button>
+                </div>
+                <button class="button user-info__button">+</button>
+            </div>
+        </div>
+
+        <div class="places-list root__section"></div>
+
+        <div class="popup" tabindex="-1">
+            <div class="popup__content popup__content_relative">
+                <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+                <div id="popupTemplate"></div> 
+            </div>
+        </div>
+    </div>
+
+    <template id="image">
+        <img class="popup__image">
+    </template>
+
+    <template id="card">
+        <div class="place-card">
+            <div class="place-card__image">
+                <button class="place-card__delete-icon"></button>
+            </div>
+            <div class="place-card__description">
+                <h3 class="place-card__name"></h3>
+                <div class="place-card__like-info">
+                    <button class="place-card__like-icon"></button>
+                    <p class="place-card__like-number">0</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="addPopup">
+        <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form" name="new">
+                    <input type="text" name="name" class="popup__input popup__input_type_name"
+                        placeholder="Название" minlength="2" required>
+                    <p class="popup__error"></p>
+                    <input type="url" name="link" class="popup__input popup__input_type_link-url"
+                        placeholder="Ссылка на картинку" required>
+                    <p class="popup__error"></p>
+                    <button type="submit" class="button popup__button popup__button_add" disabled>+</button>
+                </form>
+    </template>
+
+    <template id="editPopup">
+        <h3 class="popup__title">Редактировать профиль</h3>
+                <form class="popup__form" name="edit">
+                    <input type="text" name="personName" class="popup__input popup__input_type_name" minlength="2" required>
+                    <p class="popup__error"></p>
+                    <input type="text" name="about" class="popup__input popup__input_type_about" minlength="2" required>
+                    <p class="popup__error"></p>
+                    <button type="submit" class="button popup__button">Сохранить</button>
+                </form>
+    </template>
+
+    <template id="avatarPopup">
+        <h3 class="popup__title">Обновить аватар</h3>
+                <form class="popup__form" name="avatar">
+                    <input type="url" name="imageLink" class="popup__input popup__input_type_link-url"
+                        placeholder="Ссылка на аватар" required>
+                    <p class="popup__error"></p>
+                    <button type="submit" class="button popup__button" disabled>Сохранить</button>
+                </form>
+    </template>
+    
+    <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
+
+</body>
+
+
+</html>
