@@ -23,4 +23,4 @@
 
 - `git clone https://github.com/lilylilps/yandex_mesto.git/` - клонировать репозиторий
 - `npm install` - установить все необходимые пакеты
-- `npm run dev` - проект будет откроется в браузере на порте 8080
+- `npm run dev` - проект откроется в браузере на порте 8080
